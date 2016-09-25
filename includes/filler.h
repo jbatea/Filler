@@ -15,7 +15,7 @@ typedef struct		s_piece
 {
 	int	x;
 	int	y;
-	char	**map;
+	char	**board;
 }			t_piece;
 
 typedef struct		s_node
@@ -26,4 +26,5 @@ typedef struct		s_node
 }			t_node;
 
 void	ft_nodeinfo(t_node **node);
+
 #endif
