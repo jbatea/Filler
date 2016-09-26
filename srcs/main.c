@@ -1,6 +1,6 @@
 #include "../includes/filler.h"
 
-char	ft_playerchr(void)
+char	ft_playerchr(void) /*Use to find starting position*/
 {
 	char	player;
 	char	*line;
@@ -14,7 +14,7 @@ char	ft_playerchr(void)
 	return (player);
 }
 
-int	main(void)
+int	main(void) /*Main game's functions, save data then find best play each turn*/
 {
 	t_node	*node;
 	int	i;

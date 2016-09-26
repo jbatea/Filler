@@ -1,6 +1,6 @@
 #include "../includes/filler.h"
 
-char	**ft_saveboard(int y)
+char	**ft_saveboard(int y) /*Save piece's and map's board*/
 {
 	char	*line;
 	char	**board;
@@ -21,7 +21,7 @@ char	**ft_saveboard(int y)
 	return (board);
 }
 
-char	**ft_normtab(char **tab, int y)
+char	**ft_normtab(char **tab, int y) /*Received data cleaning*/
 {
 	int 	i;
 	int	j;
@@ -46,7 +46,7 @@ char	**ft_normtab(char **tab, int y)
 	return (tmp);
 }
 
-void	ft_mapchr(t_map **map)
+void	ft_mapchr(t_map **map) /*Save map's coordinates*/
 {
 	char	*line;
 
@@ -57,7 +57,7 @@ void	ft_mapchr(t_map **map)
 	ft_strdel(&line);
 }
 
-void	ft_piecechr(t_piece **piece)
+void	ft_piecechr(t_piece **piece) /*Save piece's coordinates*/
 {
 	char	*line;
 
@@ -68,7 +68,7 @@ void	ft_piecechr(t_piece **piece)
 	ft_strdel(&line);
 }
 
-void	ft_nodeinfo(t_node **node)
+void	ft_nodeinfo(t_node **node) /*Parse then save current turn's map and piece*/
 {
 	if ((*node)->map && (*node)->piece)
 	{

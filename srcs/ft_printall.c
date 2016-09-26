@@ -21,8 +21,7 @@ void	ft_printmove(t_node *node)
 	{
 		while (tmp)
 		{
-			if (tmp->str)
-				fprintf(stderr, "move = %s", tmp->str);
+			fprintf(stderr, "move = %d %d\n", tmp->x, tmp->y);
 			tmp = tmp->next;
 		}
 	}

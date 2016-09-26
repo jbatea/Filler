@@ -20,7 +20,8 @@ typedef struct		s_piece
 
 typedef struct		s_move
 {
-	char		*str;
+	int		x;
+	int		y;
 	struct s_move	*next;
 }			t_move;
 
@@ -32,10 +33,11 @@ typedef struct		s_node
 	char	*play;
 }			t_node;
 
+t_node	*ft_nodeinit(void);
 void	ft_nodeinfo(t_node **node);
 void	ft_freenode(t_node *node);
 void	ft_printall(t_node *node);
-t_node	*ft_nodeinit(void);
 void	ft_possiblemove(t_node **node, char player);
+void	ft_addmove(t_node **node, int x, int y);
 
 #endif

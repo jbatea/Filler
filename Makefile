@@ -16,6 +16,7 @@ COMPILED =	main.o \
 		ft_printall.o \
 		ft_nodeinit.o \
 		ft_possiblemove.o \
+		ft_addmove.o \
 
 .SILENT:
 

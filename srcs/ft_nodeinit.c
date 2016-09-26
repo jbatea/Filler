@@ -29,7 +29,7 @@ t_piece	*ft_initpiece(void)
 }
 
 
-t_node	*ft_nodeinit(void)
+t_node	*ft_nodeinit(void) /*Allocate memory for structures and init them*/
 {
 	t_node	*node;
 

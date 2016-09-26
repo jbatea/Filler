@@ -23,14 +23,12 @@ void	ft_freemove(t_move *move)
 	while (tmp)
 	{
 		ptmp = tmp->next;
-		if (tmp->str)
-			ft_strdel(&(tmp->str));
 		free(tmp);
 		tmp = ptmp;
 	}
 }
 
-void	ft_freenode(t_node *node)
+void	ft_freenode(t_node *node)/*Free all allocated memory*/
 {
 	if (node)
 	{
