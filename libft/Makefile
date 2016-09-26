@@ -171,6 +171,7 @@ SRC =	ft_putchar.c \
 	  ft_iscnull.c \
 	  ft_llutoa.c \
 		ft_intchr.c \
+		ft_tabfree.c \
 
 SRCC = $(patsubst %.c,srcs/%.c,$(SRC))
 

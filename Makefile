@@ -12,6 +12,10 @@ FT_INCLUDES =	$(LIBFT)/srcs/includes
 
 COMPILED =	main.o \
 		ft_nodeinfo.o \
+		ft_freenode.o \
+		ft_printall.o \
+		ft_nodeinit.o \
+		ft_possiblemove.o \
 
 .SILENT:
 

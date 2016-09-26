@@ -1,19 +1,5 @@
 #include "../includes/filler.h"
 
-char	ft_playerchr(void)
-{
-	char	player;
-	char	*line;
-
-	get_next_line(0, &line);
-	if (ft_strchr(line, '1'))
-		player = 'O';
-	else
-		player = 'X';
-	ft_strdel(&line);
-	return (player);
-}
-
 char	**ft_saveboard(int y)
 {
 	char	*line;
@@ -35,6 +21,31 @@ char	**ft_saveboard(int y)
 	return (board);
 }
 
+char	**ft_normtab(char **tab, int y)
+{
+	int 	i;
+	int	j;
+	char	**tmp;
+
+	i = 0;
+	j = 1;
+	tmp = (char **)malloc(sizeof(char *) * (y + 1));
+	if (tmp)
+	{
+		while (i < y)
+		{
+			tmp[i] = ft_strdup(tab[j] + 4);
+			ft_strdel(&tab[j]);
+			i++;
+			j++;
+		}
+		tmp[i] = NULL;
+		ft_strdel(&tab[0]);
+		free(tab);
+	}
+	return (tmp);
+}
+
 void	ft_mapchr(t_map **map)
 {
 	char	*line;
@@ -42,7 +53,8 @@ void	ft_mapchr(t_map **map)
 	get_next_line(0, &line);
 	(*map)->x = ft_intchr(line, 1);
 	(*map)->y = ft_intchr(line, 0);
-	(*map)->board = ft_saveboard((*map)->y);
+	(*map)->board = ft_normtab(ft_saveboard((*map)->y), (*map)->y);
+	ft_strdel(&line);
 }
 
 void	ft_piecechr(t_piece **piece)
@@ -52,14 +64,14 @@ void	ft_piecechr(t_piece **piece)
 	get_next_line(0, &line);
 	(*piece)->x = ft_intchr(line, 1);
 	(*piece)->y = ft_intchr(line, 0);
-	(*piece)->board = ft_saveboard((*piece)->y);
+	(*piece)->board = ft_saveboard((*piece)->y - 1);
+	ft_strdel(&line);
 }
 
 void	ft_nodeinfo(t_node **node)
 {
 	if ((*node)->map && (*node)->piece)
 	{
-		(*node)->player = ft_playerchr();
 		ft_mapchr(&(*node)->map);
 		ft_piecechr(&(*node)->piece);
 	}

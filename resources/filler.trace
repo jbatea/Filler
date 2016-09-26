@@ -1,5 +1,5 @@
-seed = 8801
-O: timedout
+seed = 9553
+./players/jbateau.filler: Segfault at 2
 ./players/abanlin.filler won
 Score:
-0AGAINST168
+2AGAINST142
