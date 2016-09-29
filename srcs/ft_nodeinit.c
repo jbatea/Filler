@@ -39,6 +39,9 @@ t_node	*ft_nodeinit(void) /*Allocate memory for structures and init them*/
 	node->map = ft_initmap();
 	node->piece = ft_initpiece();
 	node->move = NULL;
-	node->play = NULL;
+	node->cnt = 0;
+	node->x = 0;
+	node->y = 0;
+	node->spawn = 'N';
 	return (node);
 }

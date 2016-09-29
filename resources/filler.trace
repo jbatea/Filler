@@ -1,5 +1,4 @@
-seed = 9011
-./players/jbateau.filler: Segfault at 0
-./players/abanlin.filler won
+seed = 9289
+./players/jbateau.filler won
 Score:
-0AGAINST147
+65AGAINST105

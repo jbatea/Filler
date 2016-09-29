@@ -17,6 +17,8 @@ COMPILED =	main.o \
 		ft_nodeinit.o \
 		ft_possiblemove.o \
 		ft_addmove.o \
+		ft_findbestmove.o \
+		ft_playdir.o \
 
 .SILENT:
 

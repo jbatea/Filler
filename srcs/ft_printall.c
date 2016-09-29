@@ -29,9 +29,9 @@ void	ft_printmove(t_node *node)
 
 void	ft_printall(t_node *node)
 {
-	fprintf(stderr, "map->x = %d\nmap->y = %d\n", node->map->x, node->map->y);
-	ft_printmap(node->map->board);
-	fprintf(stderr, "piece->x = %d\npiece->y = %d\n", node->piece->x, node->piece->y);
+//	fprintf(stderr, "map->x = %d map->y = %d\n", node->map->x, node->map->y);
+//	ft_printmap(node->map->board);
+//	fprintf(stderr, "piece->x = %d piece->y = %d\n", node->piece->x, node->piece->y);
 	ft_printmap(node->piece->board);
-	ft_printmove(node);
+//	ft_printmove(node);
 }

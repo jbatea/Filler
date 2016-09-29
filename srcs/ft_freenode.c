@@ -37,7 +37,10 @@ void	ft_freenode(t_node *node)/*Free all allocated memory*/
 		if (node->piece)
 			ft_freepiece(node->piece);
 		if (node->move)
+		{
 			ft_freemove(node->move);
+			node->move = NULL;
+		}
 	}
 	free(node);
 	node = NULL;
