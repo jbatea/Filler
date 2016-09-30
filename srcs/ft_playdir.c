@@ -1,6 +1,6 @@
 #include "../includes/filler.h"
 
-void		ft_playnorth(t_node *node)
+void		ft_playnorthest(t_node *node)
 {
 	t_move *move;
 	int	x;
@@ -11,7 +11,7 @@ void		ft_playnorth(t_node *node)
 	y = node->move->y;
 	while (move)
 	{
-		if (move->y < y)
+		if (move->y < y && move->x > x)
 		{
 			x = move->x;
 			y = move->y;
@@ -22,7 +22,7 @@ void		ft_playnorth(t_node *node)
 	node->y = y;
 }
 
-void		ft_playsouth(t_node *node)
+void		ft_playsouthest(t_node *node)
 {
 	t_move *move;
 	int	x;
@@ -33,7 +33,51 @@ void		ft_playsouth(t_node *node)
 	y = node->move->y;
 	while (move)
 	{
-		if (move->y > y)
+		if (move->y > y && move->x > x)
+		{
+			x = move->x;
+			y = move->y;
+		}
+		move = move->next;
+	}
+	node->x = x;
+	node->y = y;
+}
+
+void		ft_playsouthwest(t_node *node)
+{
+	t_move *move;
+	int	x;
+	int	y;
+
+	move = node->move;
+	x = node->move->x;
+	y = node->move->y;
+	while (move)
+	{
+		if (move->y > y && move->x < x)
+		{
+			x = move->x;
+			y = move->y;
+		}
+		move = move->next;
+	}
+	node->x = x;
+	node->y = y;
+}
+
+void		ft_playnorthwest(t_node *node)
+{
+	t_move *move;
+	int	x;
+	int	y;
+
+	move = node->move;
+	x = node->move->x;
+	y = node->move->y;
+	while (move)
+	{
+		if (move->y < y && move->x < x)
 		{
 			x = move->x;
 			y = move->y;
@@ -46,8 +90,13 @@ void		ft_playsouth(t_node *node)
 
 void	ft_playdir(t_node *node)
 {
-	if (node->spawn == 'N')
-		ft_playnorth(node);
+	fprintf(stderr, "node->spawn = %d\n", node->spawn);
+	if (node->spawn == 3)
+		ft_playnorthest(node);
+	else if (node->spawn == 9)
+		ft_playsouthest(node);
+	else if (node->spawn == 15)
+		ft_playsouthwest(node);
 	else
-		ft_playsouth(node);
+		ft_playnorthwest(node);
 }

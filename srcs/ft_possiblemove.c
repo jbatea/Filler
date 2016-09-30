@@ -11,9 +11,9 @@ void	ft_canfill(t_node *node, int i, int j, char player) /*Check if new form can
 	{
 		while (x < node->piece->x)
 		{
-			if (node->piece->board[y][x] == '*' && node->map->board[y + i][x + j] && ft_toupper(node->map->board[y + i][x + j]) == player)
+			if (node->piece->board[y][x] == '*' && node->map->board[y + i][x + j] && node->map->board[y + i][x + j] == player)
 				node->cnt++;
-			if (node->piece->board[y][x] == '*' && node->map->board[y + i][x + j] && ft_toupper(node->map->board[y + i][x + j]) != player && node->map->board[y + i][x + j] != '.')
+			if (node->piece->board[y][x] == '*' && node->map->board[y + i][x + j] && node->map->board[y + i][x + j] != player && node->map->board[y + i][x + j] != '.')
 				node->cnt = 2;
 			x++;
 		}

@@ -42,6 +42,6 @@ t_node	*ft_nodeinit(void) /*Allocate memory for structures and init them*/
 	node->cnt = 0;
 	node->x = 0;
 	node->y = 0;
-	node->spawn = 'N';
+	node->spawn = 0;
 	return (node);
 }

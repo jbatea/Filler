@@ -33,7 +33,7 @@ typedef struct		s_node
 	int	cnt;
 	int	x;
 	int	y;
-	char	spawn;
+	int	spawn;
 }			t_node;
 
 t_node	*ft_nodeinit(void);

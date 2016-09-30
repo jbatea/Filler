@@ -1,20 +1,19 @@
 #include "../includes/filler.h"
 
-char	ft_bot(char player)
+int	ft_spawn(t_node *node, int i, int j)
 {
-	if (player == 'X')
-		return ('O');
-	return ('X');
+	if (i < node->map->y / 2 && j < node->map->x / 2)
+		return (9);
+	if (i < node->map->y / 2 && j > node->map->x / 2)
+		return (15);
+	if (i > node->map->y / 2 && j < node->map->x / 2)
+		return (3);
+	if (i > node->map->y / 2 && j > node->map->x / 2)
+		return (21);
+	return (0);
 }
 
-char	ft_spawn(t_node *node, int i)
-{
-	if (i < node->map->y / 2)
-		return ('N');
-	return ('S');
-}
-
-char	ft_findspawn(t_node *node, char bot)
+int	ft_findspawn(t_node *node, char player)
 {
 	int	i;
 	int	j;
@@ -25,8 +24,8 @@ char	ft_findspawn(t_node *node, char bot)
 	{
 		while (j < node->map->x)
 		{
-			if (node->map->board[i][j] && ft_toupper(node->map->board[i][j]) == bot)
-				return (ft_spawn(node, i));
+			if (node->map->board[i][j] && node->map->board[i][j] == player)
+				return (ft_spawn(node, i, j));
 			j++;
 		}
 		j = 0;
@@ -37,6 +36,6 @@ char	ft_findspawn(t_node *node, char bot)
 
 void	ft_findbestmove(t_node *node, char player)
 {
-	node->spawn = ft_findspawn(node, ft_bot(player));
+	node->spawn = ft_findspawn(node, player);
 	ft_playdir(node);
 }
