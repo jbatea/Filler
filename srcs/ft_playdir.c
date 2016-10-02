@@ -90,7 +90,6 @@ void		ft_playnorthwest(t_node *node)
 
 void	ft_playdir(t_node *node)
 {
-	fprintf(stderr, "node->spawn = %d\n", node->spawn);
 	if (node->spawn == 3)
 		ft_playnorthest(node);
 	else if (node->spawn == 9)
