@@ -7,6 +7,7 @@ char	**ft_saveboard(int y) /*Save piece's and map's board*/
 	int	i;
 
 	i = 0;
+	line = NULL;
 	board = (char **)malloc(sizeof(char *) * (y + 2));
 	if (board)
 	{

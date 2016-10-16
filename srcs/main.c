@@ -32,6 +32,8 @@ int	main(void) /*Main game's functions, save data then find best play each turn*
 	int	n;
 
 	n = 1;
+	int i;
+	i = 0;
 	node = NULL;
 	player = ft_playerchr();
 	while (n)

@@ -1,19 +1,18 @@
 #include "../includes/filler.h"
 
-int	ft_spawn(t_node *node, int i, int j)
+void	ft_spawn(t_node *node, int i, int j)
 {
-	if (i < node->map->y / 2 && j < node->map->x / 2)
-		return (9);
-	if (i < node->map->y / 2 && j > node->map->x / 2)
-		return (15);
-	if (i > node->map->y / 2 && j < node->map->x / 2)
-		return (3);
-	if (i > node->map->y / 2 && j > node->map->x / 2)
-		return (21);
-	return (0);
+	if (i < node->map->y / 2)
+		node->spawn[0]++;
+	if (i > node->map->y / 2)
+		node->spawn[1]++;
+	if (j < node->map->x / 2)
+		node->spawn[2]++;
+	if (j > node->map->x / 2)
+		node->spawn[3]++;
 }
 
-int	ft_findspawn(t_node *node, char player)
+void	ft_findspawn(t_node *node, char player)
 {
 	int	i;
 	int	j;
@@ -25,17 +24,60 @@ int	ft_findspawn(t_node *node, char player)
 		while (j < node->map->x)
 		{
 			if (node->map->board[i][j] && node->map->board[i][j] == player)
-				return (ft_spawn(node, i, j));
+				ft_spawn(node, i, j);
 			j++;
 		}
 		j = 0;
 		i++;
 	}
-	return (0);
+}
+
+char	ft_opponent(char player)
+{
+	if (player == 'X')
+		return ('O');
+	return ('X');
+}
+
+void	ft_clearspawn(t_node *node, int j)
+{
+	int	i;
+
+	i = 0;
+	while (i < 4)
+	{
+		if (i != j)
+			node->spawn[i] = 0;
+		else
+			node->spawn[i] = 1;
+		i++;
+	}
+}
+
+void	ft_spawncount(t_node *node)
+{
+	int	i;
+	int	j;
+	int	best;
+
+	i = 0;
+	j = i;
+	best = node->spawn[i];
+	while (i < 4)
+	{
+		if (node->spawn[i] < best)
+		{
+			j = i;
+			best = node->spawn[i];
+		}
+		i++;
+	}
+	ft_clearspawn(node, j);
 }
 
 void	ft_findbestmove(t_node *node, char player)
 {
-	node->spawn = ft_findspawn(node, player);
+	ft_findspawn(node, player);
+	ft_spawncount(node);
 	ft_playdir(node);
 }

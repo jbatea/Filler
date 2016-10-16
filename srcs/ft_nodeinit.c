@@ -28,6 +28,22 @@ t_piece	*ft_initpiece(void)
 	return (piece);
 }
 
+int	*ft_initspawn(void)
+{
+	int	*spawn;
+	int	i;
+
+	i = 0;
+	spawn = (int *)malloc(sizeof(int) * (4));
+	if (!spawn)
+		return (NULL);
+	while (i < 4)
+	{
+		spawn[i] = 0;
+		i++;
+	}
+	return (spawn);
+}
 
 t_node	*ft_nodeinit(void) /*Allocate memory for structures and init them*/
 {
@@ -38,10 +54,10 @@ t_node	*ft_nodeinit(void) /*Allocate memory for structures and init them*/
 		return (NULL);
 	node->map = ft_initmap();
 	node->piece = ft_initpiece();
+	node->spawn = ft_initspawn(); 
 	node->move = NULL;
 	node->cnt = 0;
 	node->x = 0;
 	node->y = 0;
-	node->spawn = 0;
 	return (node);
 }

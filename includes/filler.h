@@ -30,10 +30,10 @@ typedef struct		s_node
 	t_map	*map;
 	t_piece	*piece;
 	t_move	*move;
+	int	*spawn;
 	int	cnt;
 	int	x;
 	int	y;
-	int	spawn;
 }			t_node;
 
 t_node	*ft_nodeinit(void);

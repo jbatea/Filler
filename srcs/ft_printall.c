@@ -7,7 +7,7 @@ void	ft_printmap(char **board)
 	i = 0;
 	while (board[i])
 	{
-		fprintf(stderr, "board[%2d] = %s\n", i, board[i]);
+		fprintf(stderr, "%2d = %s\n", i, board[i]);
 		i++;
 	}
 }
@@ -30,8 +30,8 @@ void	ft_printmove(t_node *node)
 void	ft_printall(t_node *node)
 {
 //	fprintf(stderr, "map->x = %d map->y = %d\n", node->map->x, node->map->y);
-	ft_printmap(node->map->board);
+//	ft_printmap(node->map->board);
 //	fprintf(stderr, "piece->x = %d piece->y = %d\n", node->piece->x, node->piece->y);
-	//ft_printmap(node->piece->board);
+	ft_printmap(node->piece->board);
 //	ft_printmove(node);
 }
