@@ -1,25 +1,18 @@
 #include "../includes/filler.h"
 
-void	ft_freemap(t_map *map)
+void	ft_freeboard(t_board *board)
 {
-	ft_tabfree(map->board);
-	free(map);
-	map = NULL;
+	ft_tabfree(board->board);
+	free(board);
+	board = NULL;
 }
 
-void	ft_freepiece(t_piece *piece)
+void	ft_freecoord(t_coord *coord)
 {
-	ft_tabfree(piece->board);
-	free(piece);
-	piece = NULL;
-}
-
-void	ft_freemove(t_move *move)
-{
-	t_move	*tmp;
-	t_move	*ptmp;
+	t_coord	*tmp;
+	t_coord	*ptmp;
 	
-	tmp = move;
+	tmp = coord;
 	while (tmp)
 	{
 		ptmp = tmp->next;
@@ -33,13 +26,18 @@ void	ft_freenode(t_node *node)/*Free all allocated memory*/
 	if (node)
 	{
 		if (node->map)
-			ft_freemap(node->map);
+			ft_freeboard(node->map);
 		if (node->piece)
-			ft_freepiece(node->piece);
+			ft_freeboard(node->piece);
 		if (node->move)
 		{
-			ft_freemove(node->move);
+			ft_freecoord(node->move);
 			node->move = NULL;
+		}
+		if (node->spawn)
+		{
+			ft_freecoord(node->spawn);
+			node->spawn = NULL;
 		}
 	}
 	free(node);

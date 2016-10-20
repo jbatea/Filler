@@ -35,6 +35,7 @@ void				ft_putnbrl(int n);
 void				ft_putendl(char const *s);
 size_t				ft_strlen(const char *s);
 int					ft_ishex(int c);
+int					ft_abs(int n);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);

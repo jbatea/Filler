@@ -47,7 +47,7 @@ char	**ft_normtab(char **tab, int y) /*Received data cleaning*/
 	return (tmp);
 }
 
-void	ft_mapchr(t_map **map) /*Save map's coordinates*/
+void	ft_mapchr(t_board **map) /*Save map's coordinates*/
 {
 	char	*line;
 
@@ -58,7 +58,7 @@ void	ft_mapchr(t_map **map) /*Save map's coordinates*/
 	ft_strdel(&line);
 }
 
-void	ft_piecechr(t_piece **piece) /*Save piece's coordinates*/
+void	ft_piecechr(t_board **piece) /*Save piece's coordinates*/
 {
 	char	*line;
 
@@ -69,11 +69,13 @@ void	ft_piecechr(t_piece **piece) /*Save piece's coordinates*/
 	ft_strdel(&line);
 }
 
-void	ft_nodeinfo(t_node **node) /*Parse then save current turn's map and piece*/
+int	ft_nodeinfo(t_node **node) /*Parse then save current turn's map and piece*/
 {
 	if ((*node)->map && (*node)->piece)
 	{
 		ft_mapchr(&(*node)->map);
 		ft_piecechr(&(*node)->piece);
+		return (1);
 	}
+	return (0);
 }

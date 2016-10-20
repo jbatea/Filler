@@ -1,36 +1,5 @@
 #include "../includes/filler.h"
 
-int	ft_counttrim(t_node *node)
-{
-	int	x;
-	int	y;
-	int	cnt;
-	int	ret;
-	int	min;
-
-	x = 0;
-	y = 0;
-	cnt = 0;
-	ret = ft_strlen(node->piece->board[y]);
-	min = ret;
-	while (y < node->piece->y)
-	{
-		while (x < node->piece->x && node->piece->board[y][x] && node->piece->board[y][x] == '.')
-		{
-			cnt++;
-			x++;
-		}
-		if (cnt < ret && cnt < min)
-			ret = cnt;
-		if (cnt < ret)
-			min = cnt;
-		cnt = 0;
-		x = 0;
-		y++;
-	}
-	return (ret);
-}
-
 void	ft_canfill(t_node *node, int i, int j, char player) /*Check if new form can be placed*/
 {
 	int	x;
@@ -117,7 +86,7 @@ void	ft_possiblemove(t_node *node, char player) /*List possible's move and choos
 			node->cnt = 0;
 			ft_canfill(node, i, j - ft_counttrim(node), player);
 			if (node->cnt == 1)
-				ft_addmove(&node, i, j - ft_counttrim(node));
+				ft_addcoord(&(node->move), j - ft_counttrim(node), i);
 			j++;
 		}
 		j = 0;

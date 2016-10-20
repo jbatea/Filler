@@ -20,6 +20,7 @@ SRC =	ft_putchar.c \
 	  ft_putnbr.c \
 	  ft_putendl.c \
 	  ft_strlen.c \
+	  ft_abs.c \
 	  ft_isalpha.c \
 	  ft_ishex.c \
 	  ft_isdigit.c \

@@ -13,12 +13,10 @@ FT_INCLUDES =	$(LIBFT)/srcs/includes
 COMPILED =	main.o \
 		ft_nodeinfo.o \
 		ft_freenode.o \
-		ft_printall.o \
-		ft_nodeinit.o \
 		ft_possiblemove.o \
-		ft_addmove.o \
-		ft_findbestmove.o \
-		ft_playdir.o \
+		ft_addcoord.o \
+		ft_findspawn.o \
+		ft_counttrim.o \
 
 .SILENT:
 
