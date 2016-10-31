@@ -9,6 +9,7 @@ t_coord		*ft_initcoord(int x, int y) /*Init new node with the proper move*/
 	{
 		new->x = x;
 		new->y = y;
+		new->average = NULL;
 		new->next = NULL;
 	}
 	return (new);

@@ -37,19 +37,17 @@ t_node	*ft_nodeinit(void) /*Allocate memory for structures and init them*/
 	{
 		node->map = ft_initboard();
 		node->piece = ft_initboard();
-		node->spawn = NULL;
+		node->my_spawn = NULL;
+		node->op_spawn = NULL;
 		node->move = NULL;
 		node->cnt = 0;
-		node->nb = 0;
 		node->x = 0;
 		node->y = 0;
-		node->xavg = 0;
-		node->yavg = 0;
 	}
 	return (node);
 }
 
-void	ft_play(t_node *node, int *n) /*Play current move or exit program*/
+void	ft_output(t_node *node, int *n) /*Play current move or exit program*/
 {
 	if (node->move)
 		ft_printf("%d %d\n", node->y, node->x);
@@ -58,6 +56,13 @@ void	ft_play(t_node *node, int *n) /*Play current move or exit program*/
 		ft_printf("0 0\n");
 		*n = 0;
 	}
+}
+
+char	ft_op(char player)
+{
+	if (player == 'X')
+		return ('O');
+	return ('X');
 }
 
 int	main(void) /*Main game's functions, save data then find best play each turn*/
@@ -75,8 +80,10 @@ int	main(void) /*Main game's functions, save data then find best play each turn*
 		{
 			ft_possiblemove(node, player);
 			if (node->move)
-				ft_findspawn(node, player);
-			ft_play(node, &n);
+				ft_findspawn(node, &(node->my_spawn), player);
+			ft_findspawn(node, &(node->op_spawn), ft_op(player));
+			ft_play(node);
+			ft_output(node, &n);
 			ft_freenode(node);
 		}
 	}

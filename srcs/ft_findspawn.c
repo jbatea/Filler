@@ -1,53 +1,39 @@
 #include "../includes/filler.h"
 
-void	ft_avgcmp(t_node *node, t_coord *move)
+void	ft_average(t_coord *coord)
 {
-	int	min;
-	int	cur;
+	t_coord	*cur;
 
-	min = ft_abs(node->xavg + node->yavg - (node->x + node->y));
-	cur = ft_abs(node->xavg + node->yavg - (move->x + move->y));
-	if (cur >= min)
+	cur = coord;
+	while (cur)
 	{
-		node->y = move->y;
-		node->x = move->x;
+		coord->average->x = coord->average->x + cur->x;
+		coord->average->y = coord->average->y + cur->y;
+		cur = cur->next;
 	}
+	coord->average->x = coord->average->x / coord->average->nb;
+	coord->average->y = coord->average->y / coord->average->nb;
 }
 
-void	ft_playavg(t_node *node)
+int	ft_averageinit(t_coord *coord)
 {
-	t_coord	*move;
+	t_average	*new;
 
-	move = node->move;
-	if (move)
+	new = NULL;
+	if (!(coord->average))
 	{
-		node->y = move->y;
-		node->x = move->x;
-		while (move)
-		{
-			ft_avgcmp(node, move);
-			move = move->next;
-		}
+		new = (t_average *)malloc(sizeof(t_average));
+		if (!new)
+			return (0);
+		new->x = 0;
+		new->y = 0;
+		new->nb = 0;
+		coord->average = new;
 	}
+	return (1);
 }
 
-void	ft_average(t_node *node)
-{
-	t_coord	*spawn;
-
-	spawn = node->spawn;
-	while (spawn)
-	{
-		node->xavg = node->xavg + spawn->x;
-		node->yavg = node->yavg + spawn->y;
-		spawn = spawn->next;
-	}
-	node->xavg = node->xavg / node->nb;
-	node->yavg = node->yavg / node->nb;
-	ft_playavg(node);
-}
-
-void	ft_findspawn(t_node *node, char player)
+void	ft_findspawn(t_node *node, t_coord **coord, char player)
 {
 	int	y;
 	int	x;
@@ -60,13 +46,14 @@ void	ft_findspawn(t_node *node, char player)
 		{
 			if (node->map->board[y][x] && node->map->board[y][x] == player)
 			{
-				ft_addcoord(&(node->spawn), x, y);
-				node->nb = node->nb + 1;
+				ft_addcoord(coord, x, y);
+				if (ft_averageinit(*coord))
+					(*coord)->average->nb = (*coord)->average->nb + 1;
 			}
 			x++;
 		}
 		x = 0;
 		y++;
 	}
-	ft_average(node);
+	ft_average(*coord);
 }
