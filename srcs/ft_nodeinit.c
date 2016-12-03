@@ -1,56 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_addcoord.c                                      :+:      :+:    :+:   */
+/*   ft_nodeinit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbateau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/03 15:43:35 by jbateau           #+#    #+#             */
-/*   Updated: 2016/12/03 15:44:26 by jbateau          ###   ########.fr       */
+/*   Created: 2016/12/03 15:46:26 by jbateau           #+#    #+#             */
+/*   Updated: 2016/12/03 15:50:36 by jbateau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
 
-/*
- ** Init new node with the proper move
-*/
-
-t_coord		*ft_initcoord(int x, int y)
+t_board		*ft_initboard(void)
 {
-	t_coord	*new;
+	t_board	*new;
 
-	new = (t_coord *)malloc(sizeof(t_coord));
+	new = (t_board *)malloc(sizeof(t_board));
 	if (new)
 	{
-		new->x = x;
-		new->y = y;
-		new->average = NULL;
-		new->next = NULL;
+		new->x = 0;
+		new->y = 0;
+		new->board = NULL;
 	}
 	return (new);
 }
 
 /*
- ** Add new node to linked list's moves
+ **Allocate memory for structures and init them
 */
 
-void		ft_addcoord(t_coord **coord, int x, int y)
+t_node		*ft_nodeinit(void)
 {
-	t_coord	*new;
-	t_coord	*tmp;
+	t_node	*node;
 
-	tmp = *coord;
-	new = ft_initcoord(x, y);
-	if (new)
+	node = (t_node *)malloc(sizeof(t_node));
+	if (node)
 	{
-		if (!tmp)
-			*coord = new;
-		else
-		{
-			while (tmp->next)
-				tmp = tmp->next;
-			tmp->next = new;
-		}
+		node->map = ft_initboard();
+		node->piece = ft_initboard();
+		node->my_spawn = NULL;
+		node->op_spawn = NULL;
+		node->move = NULL;
+		node->cnt = 0;
+		node->x = 0;
+		node->y = 0;
 	}
+	return (node);
 }

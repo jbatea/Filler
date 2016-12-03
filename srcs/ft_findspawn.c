@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_findspawn.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jbateau <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/12/03 15:40:55 by jbateau           #+#    #+#             */
+/*   Updated: 2016/12/03 15:41:12 by jbateau          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/filler.h"
 
-void	ft_average(t_coord *coord)
+void		ft_average(t_coord *coord)
 {
 	t_coord	*cur;
 
@@ -15,7 +27,7 @@ void	ft_average(t_coord *coord)
 	coord->average->y = coord->average->y / coord->average->nb;
 }
 
-int	ft_averageinit(t_coord *coord)
+int			ft_averageinit(t_coord *coord)
 {
 	t_average	*new;
 
@@ -33,7 +45,7 @@ int	ft_averageinit(t_coord *coord)
 	return (1);
 }
 
-void	ft_findspawn(t_node *node, t_coord **coord, char player)
+void		ft_findspawn(t_node *node, t_coord **coord, char player)
 {
 	int	y;
 	int	x;

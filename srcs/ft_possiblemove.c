@@ -1,9 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_possiblemove.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jbateau <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/12/03 15:28:59 by jbateau           #+#    #+#             */
+/*   Updated: 2016/12/03 15:31:18 by jbateau          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/filler.h"
 
-void	ft_canfill(t_node *node, int i, int j, char player) /*Check if new form can be placed*/
+/*
+ ** Check if new form can be placed
+*/
+
+void		ft_canfill(t_node *node, int i, int j, char player)
 {
-	int	x;
-	int	y;
+	int		x;
+	int		y;
+	char	piece;
+	char	map;
 
 	x = 0;
 	y = 0;
@@ -11,9 +29,11 @@ void	ft_canfill(t_node *node, int i, int j, char player) /*Check if new form can
 	{
 		while (x < node->piece->x)
 		{
-			if (node->piece->board[y][x] == '*' && node->map->board[y + i][x + j] && node->map->board[y + i][x + j] == player)
+			map = node->map->board[y + i][x + j];
+			piece = node->piece->board[y][x];
+			if (piece == '*' && map && map == player)
 				node->cnt++;
-			if (node->piece->board[y][x] == '*' && node->map->board[y + i][x + j] && node->map->board[y + i][x + j] != player && node->map->board[y + i][x + j] != '.')
+			if (piece == '*' && map && map != player && map != '.')
 				node->cnt = 2;
 			x++;
 		}
@@ -22,10 +42,10 @@ void	ft_canfill(t_node *node, int i, int j, char player) /*Check if new form can
 	}
 }
 
-int	ft_normy(t_node *node)
+int			ft_normy(t_node *node)
 {
-	int	y;
-	int	i;
+	int		y;
+	int		i;
 
 	i = node->piece->y - 1;
 	y = node->piece->y;
@@ -40,9 +60,9 @@ int	ft_normy(t_node *node)
 	return (y);
 }
 
-int	ft_trimx(char *str)
+int			ft_trimx(char *str)
 {
-	int	i;
+	int		i;
 
 	i = ft_strlen(str) - 1;
 	while (i > 0 && str[i] && str[i] == '.')
@@ -50,11 +70,11 @@ int	ft_trimx(char *str)
 	return (i + 1);
 }
 
-int	ft_normx(t_node *node)
+int			ft_normx(t_node *node)
 {
-	int	x;
-	int	j;
-	int	len;
+	int		x;
+	int		j;
+	int		len;
 
 	j = 1;
 	x = ft_trimx(node->piece->board[0]);
@@ -68,12 +88,16 @@ int	ft_normx(t_node *node)
 	return (x);
 }
 
-void	ft_possiblemove(t_node *node, char player) /*List possible's move and choose one*/
+/*
+ ** List possible's move and choose one
+*/
+
+void		ft_possiblemove(t_node *node, char player)
 {
-	int	i;
-	int	j;
-	int	y;
-	int	x;
+	int		i;
+	int		j;
+	int		y;
+	int		x;
 
 	i = 0;
 	j = 0;

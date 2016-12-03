@@ -1,15 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_counttrim.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jbateau <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/12/03 15:41:23 by jbateau           #+#    #+#             */
+/*   Updated: 2016/12/03 15:43:30 by jbateau          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/filler.h"
 
-void	ft_lencmp(int *cnt, int *ret, int *min)
+void		ft_lencmp(int *cnt, int *ret, int *min)
 {
 	if (*cnt < *ret && *cnt < *min)
 		*ret = *cnt;
 	if (*cnt < *ret)
-	 	*min = *cnt;
+		*min = *cnt;
 	*cnt = 0;
 }
 
-int	ft_counttrim(t_node *node)
+int			ft_counttrim(t_node *node)
 {
 	int	x;
 	int	y;
@@ -24,7 +36,8 @@ int	ft_counttrim(t_node *node)
 	min = ret;
 	while (y < node->piece->y)
 	{
-		while (x < node->piece->x && node->piece->board[y][x] && node->piece->board[y][x] == '.')
+		while (x < node->piece->x && node->piece->board[y][x] &&
+				node->piece->board[y][x] == '.')
 		{
 			cnt++;
 			x++;

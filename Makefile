@@ -18,6 +18,7 @@ COMPILED =	main.o \
 		ft_findspawn.o \
 		ft_counttrim.o \
 		ft_play.o \
+		ft_nodeinit.o \
 
 .SILENT:
 

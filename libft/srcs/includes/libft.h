@@ -6,7 +6,7 @@
 /*   By: jbateau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 12:33:01 by jbateau           #+#    #+#             */
-/*   Updated: 2016/04/25 15:00:20 by jbateau          ###   ########.fr       */
+/*   Updated: 2016/12/03 15:51:18 by jbateau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
-int				ft_intchr(char *line, int n);
+int					ft_intchr(char *line, int n);
 void				ft_tabfree(char **tab);
 
 #endif

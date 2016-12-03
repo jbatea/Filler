@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_freenode.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jbateau <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/12/03 15:42:27 by jbateau           #+#    #+#             */
+/*   Updated: 2016/12/03 15:43:13 by jbateau          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/filler.h"
 
 void	ft_freeboard(t_board *board)
@@ -13,7 +25,7 @@ void	ft_freecoord(t_coord *coord)
 {
 	t_coord	*tmp;
 	t_coord	*ptmp;
-	
+
 	tmp = coord;
 	if (tmp && tmp->average)
 		ft_memdel((void *)&(tmp->average));
@@ -26,7 +38,11 @@ void	ft_freecoord(t_coord *coord)
 	coord = NULL;
 }
 
-void	ft_freenode(t_node *node)/*Free all allocated memory*/
+/*
+ ** Free all allocated memory
+*/
+
+void	ft_freenode(t_node *node)
 {
 	if (node)
 	{

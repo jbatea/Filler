@@ -1,10 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_nodeinfo.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jbateau <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/12/03 15:37:03 by jbateau           #+#    #+#             */
+/*   Updated: 2016/12/03 15:37:25 by jbateau          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/filler.h"
 
-char	**ft_saveboard(int y) /*Save piece's and map's board*/
+/*
+ **Save piece's and map's board
+*/
+
+char	**ft_saveboard(int y)
 {
 	char	*line;
 	char	**board;
-	int	i;
+	int		i;
 
 	i = 0;
 	line = NULL;
@@ -22,10 +38,14 @@ char	**ft_saveboard(int y) /*Save piece's and map's board*/
 	return (board);
 }
 
-char	**ft_normtab(char **tab, int y) /*Received data cleaning*/
+/*
+ ** Received data cleaning
+*/
+
+char	**ft_normtab(char **tab, int y)
 {
-	int 	i;
-	int	j;
+	int		i;
+	int		j;
 	char	**tmp;
 
 	i = 0;
@@ -47,7 +67,11 @@ char	**ft_normtab(char **tab, int y) /*Received data cleaning*/
 	return (tmp);
 }
 
-void	ft_mapchr(t_board **map) /*Save map's coordinates*/
+/*
+ ** Save map's coordinates
+*/
+
+void	ft_mapchr(t_board **map)
 {
 	char	*line;
 
@@ -58,7 +82,11 @@ void	ft_mapchr(t_board **map) /*Save map's coordinates*/
 	ft_strdel(&line);
 }
 
-void	ft_piecechr(t_board **piece) /*Save piece's coordinates*/
+/*
+ ** Save piece's coordinates
+*/
+
+void	ft_piecechr(t_board **piece)
 {
 	char	*line;
 
@@ -69,7 +97,11 @@ void	ft_piecechr(t_board **piece) /*Save piece's coordinates*/
 	ft_strdel(&line);
 }
 
-int	ft_nodeinfo(t_node **node) /*Parse then save current turn's map and piece*/
+/*
+ ** Parse then save current turn's map and piece
+*/
+
+int		ft_nodeinfo(t_node **node)
 {
 	if ((*node)->map && (*node)->piece)
 	{
