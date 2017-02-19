@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../../includes/ft_printf.h"
 
 int		ft_isxsharp(char *tmp)
 {
@@ -26,9 +26,6 @@ int		ft_isxsharp(char *tmp)
 
 char	*ft_applysharp(char s, char *tmp, char f)
 {
-	char	*str;
-
-	str = NULL;
 	if (f == '#' && tmp[0] && tmp[0] != '0')
 	{
 		if (s == 'x' || s == 'X' || s == 'o' || s == 'O')

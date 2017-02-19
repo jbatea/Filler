@@ -1,49 +1,45 @@
-NAME =		jbateau.filler
+NAME		=	jbateau.filler
 
-NAMEBASE =	$(shell basename $(NAME))
-MAKE = 		make -C
-CC =		clang
-FLAGS =		-Wall -Werror -Wextra
-SRCS =		srcs/
-INCLUDES =	includes/
-LIBFT =		libft/
-OBJDIR = 	objs
-FT_INCLUDES =	$(LIBFT)/srcs/includes
+SRC_NAME	=	main.c	\
+			ft_addcoord.c \
+			ft_counttrim.c \
+			ft_findspawn.c \
+			ft_freenode.c \
+			ft_nodeinfo.c \
+			ft_nodeinit.c \
+			ft_play.c \
+			ft_possiblemove.c	\
 
-COMPILED =	main.o \
-		ft_nodeinfo.o \
-		ft_freenode.o \
-		ft_possiblemove.o \
-		ft_addcoord.o \
-		ft_findspawn.o \
-		ft_counttrim.o \
-		ft_play.o \
-		ft_nodeinit.o \
+SRC		=	$(addprefix srcs/, $(SRC_NAME))
 
-.SILENT:
+OBJ		=	$(SRC:srcs/%.c=.obj/%.o)
+
+CC		=	gcc
+
+FLAGS		= 	-Wall -Werror -Wextra
+
+LIB		= 	-L libft -lft
+
+INCLUDE		= 	-I includes
 
 all: 		$(NAME)
-		echo "\033[38;5;44m☑️  ALL    $(NAMEBASE) is done\033[0m\033[K"
 
-$(NAME): 	$(COMPILED)
-		$(MAKE) $(LIBFT)
-		@$(CC) $(FLAGS) -o $(NAME) -L $(LIBFT) -lft $(COMPILED)
-		echo -en "\r\033[38;5;22m☑️  MAKE   $(NAMEBASE)\033[0m\033[K"
+$(NAME): 	lib $(OBJ)
+		$(CC) $(OBJ) $(INCLUDE) $(FLAGS) $(LIB) -o $@
 
-$(COMPILED): 	%.o: $(SRCS)%.c
-		@$(CC) -c $(FLAGS) -I $(FT_INCLUDES) -I $(INCLUDES) $< -o $@
-		echo "\r\033[38;5;11m⌛  MAKE   $(NAMEBASE) please wait ...\033[0m\033[K"
+.obj/%.o: 	srcs/%.c
+		@mkdir -p .obj/
+		$(CC) $(FLAGS) $(INCLUDE) -c $< -o $@
 
 clean:
-		$(MAKE) $(LIBFT) clean
-		@-/bin/rm -f $(COMPILED)
-		echo "\r\033[38;5;11m⌛  CLEAN  $(NAMEBASE) please wait ...\033[0m\033[K"
+		@rm -rf .obj/
+		@make clean -C libft/
 
 fclean: 	clean
-		$(MAKE) $(LIBFT) fclean
-		@-/bin/rm -f $(NAME)
-		echo "\r\033[38;5;11m⌛  FCLEAN $(NAMEBASE) please wait ...\033[0m\033[K"
+		@rm -rf $(NAME)
+		@make fclean -C libft/
 
 re: 		fclean all
 
-.PHONY:		fclean clean re
+lib:
+		@make -C libft

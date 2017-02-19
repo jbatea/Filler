@@ -71,8 +71,7 @@ int			main(void)
 		{
 			ft_possiblemove(node, player);
 			if (node->move)
-				ft_findspawn(node, &(node->my_spawn), player);
-			ft_findspawn(node, &(node->op_spawn), ft_op(player));
+				ft_findspawn(node, &(node->op_spawn), ft_op(player));
 			ft_play(node);
 			ft_output(node, &n);
 			ft_freenode(node);

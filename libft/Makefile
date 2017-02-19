@@ -12,7 +12,7 @@
 
 NAME = libft.a
 
-CC = gcc -Wall -Wextra -Werror -Isrcs/includes
+CC = gcc -Wall -Wextra -Werror -I../includes
 
 SRC =	ft_putchar.c \
 	  ft_putstr.c \
@@ -40,6 +40,7 @@ SRC =	ft_putchar.c \
 	  ft_strrchr.c \
 	  ft_strchr_cnt.c \
 	  ft_strcmp.c \
+	  ft_strscmp.c \
 	  ft_strncmp.c \
 	  ft_strstr.c \
 	  ft_strnstr.c \

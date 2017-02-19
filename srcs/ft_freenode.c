@@ -49,7 +49,6 @@ void	ft_freenode(t_node *node)
 		ft_freeboard(node->map);
 		ft_freeboard(node->piece);
 		ft_freecoord(node->move);
-		ft_freecoord(node->my_spawn);
 		ft_freecoord(node->op_spawn);
 		ft_memdel((void *)&node);
 	}

@@ -12,7 +12,8 @@
 
 #ifndef FILLER_H
 # define FILLER_H
-# include "../libft/srcs/includes/libft.h"
+# include "libft.h"
+#include <stdio.h>
 
 typedef struct		s_board
 {
@@ -41,7 +42,6 @@ typedef struct		s_node
 	t_board	*map;
 	t_board	*piece;
 	t_coord	*move;
-	t_coord	*my_spawn;
 	t_coord	*op_spawn;
 	int		cnt;
 	int		x;

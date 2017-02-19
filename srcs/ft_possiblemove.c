@@ -25,21 +25,28 @@ void		ft_canfill(t_node *node, int i, int j, char player)
 
 	x = 0;
 	y = 0;
+//	fprintf(stderr, "CANFILL\n");
+//	fprintf(stderr, "node->map->x = %d node->map->y = %d\n", node->map->x, node->map->y);
 	while (y < node->piece->y)
 	{
 		while (x < node->piece->x)
 		{
-			map = node->map->board[y + i][x + j];
-			piece = node->piece->board[y][x];
-			if (piece == '*' && map && map == player)
-				node->cnt++;
-			if (piece == '*' && map && map != player && map != '.')
-				node->cnt = 2;
+			//fprintf(stderr, "y + i = %d x + j = %d\n", y + i, x + j);
+			if (y + i < node->map->y && x + j < node->map->x)
+			{
+				map = node->map->board[y + i][x + j];
+				piece = node->piece->board[y][x];
+				if (piece == '*' && map && map == player)
+					node->cnt++;
+				if (piece == '*' && map && map != player && map != '.')
+					node->cnt = 2;
+			}
 			x++;
 		}
 		x = 0;
 		y++;
 	}
+	//fprintf(stderr, "OUTOFCANFILL\n");
 }
 
 int			ft_normy(t_node *node)

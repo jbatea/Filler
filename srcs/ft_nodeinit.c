@@ -39,7 +39,6 @@ t_node		*ft_nodeinit(void)
 	{
 		node->map = ft_initboard();
 		node->piece = ft_initboard();
-		node->my_spawn = NULL;
 		node->op_spawn = NULL;
 		node->move = NULL;
 		node->cnt = 0;

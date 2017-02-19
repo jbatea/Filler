@@ -10,13 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/libft.h"
 
 void		ft_putstrnull(char const *s, int len)
 {
-	int		i;
-
-	i = 0;
 	write(1, s, ft_strlen(s));
 	if (len != 0)
 		write(1, "\0", 1);
