@@ -6,7 +6,7 @@
 /*   By: jbateau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/03 15:46:26 by jbateau           #+#    #+#             */
-/*   Updated: 2016/12/03 15:50:36 by jbateau          ###   ########.fr       */
+/*   Updated: 2017/05/16 16:00:08 by jbateau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_node		*ft_nodeinit(void)
 	{
 		node->map = ft_initboard();
 		node->piece = ft_initboard();
-		node->op_spawn = NULL;
+		node->my_spawn = NULL;
 		node->move = NULL;
 		node->cnt = 0;
 		node->x = 0;

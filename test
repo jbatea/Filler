@@ -1,0 +1,66 @@
+		map00
+
+jbateau			abanlin		8 - 2
+
+abanlin			jbateau 	0 - 10
+
+jbateau			carli		2 - 8
+
+carli			jbateau		7 - 3
+
+jbateau			grati
+
+grati			jbateau
+
+jbateau			hcao
+
+hcao			jbateau
+
+jbateau			superjeannot
+
+superjeannot	jbateau
+
+
+		map01
+
+jbateau			abanlin
+
+abanlin			jbateau
+
+jbateau			carli
+
+carli			jbateau
+
+jbateau			grati
+
+grati			jbateau
+
+jbateau			hcao
+
+hcao			jbateau
+
+jbateau			superjeannot
+
+superjeannot	jbateau
+
+		map02
+
+jbateau			abanlin
+
+abanlin			jbateau
+
+jbateau			carli
+
+carli			jbateau
+
+jbateau			grati
+
+grati			jbateau
+
+jbateau			hcao
+
+hcao			jbateau
+
+jbateau			superjeannot
+
+superjeannot	jbateau

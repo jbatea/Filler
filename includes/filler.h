@@ -6,7 +6,7 @@
 /*   By: jbateau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/03 15:52:42 by jbateau           #+#    #+#             */
-/*   Updated: 2016/12/03 15:56:00 by jbateau          ###   ########.fr       */
+/*   Updated: 2017/05/16 18:10:06 by jbateau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ typedef struct		s_node
 	t_board	*map;
 	t_board	*piece;
 	t_coord	*move;
-	t_coord	*op_spawn;
+	t_coord	*save_move;
+	t_coord	*my_spawn;
 	int		cnt;
 	int		x;
 	int		y;

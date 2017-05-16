@@ -6,7 +6,7 @@
 /*   By: jbateau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/03 15:42:27 by jbateau           #+#    #+#             */
-/*   Updated: 2016/12/03 15:43:13 by jbateau          ###   ########.fr       */
+/*   Updated: 2017/05/16 15:59:24 by jbateau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_freenode(t_node *node)
 		ft_freeboard(node->map);
 		ft_freeboard(node->piece);
 		ft_freecoord(node->move);
-		ft_freecoord(node->op_spawn);
+		ft_freecoord(node->my_spawn);
 		ft_memdel((void *)&node);
 	}
 }
