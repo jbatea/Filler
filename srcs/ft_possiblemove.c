@@ -6,7 +6,7 @@
 /*   By: jbateau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/03 15:28:59 by jbateau           #+#    #+#             */
-/*   Updated: 2016/12/03 15:31:18 by jbateau          ###   ########.fr       */
+/*   Updated: 2017/05/23 16:44:20 by jbateau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,10 @@ void		ft_canfill(t_node *node, int i, int j, char player)
 
 	x = 0;
 	y = 0;
-//	fprintf(stderr, "CANFILL\n");
-//	fprintf(stderr, "node->map->x = %d node->map->y = %d\n", node->map->x, node->map->y);
 	while (y < node->piece->y)
 	{
 		while (x < node->piece->x)
 		{
-			//fprintf(stderr, "y + i = %d x + j = %d\n", y + i, x + j);
 			if (y + i < node->map->y && x + j < node->map->x)
 			{
 				map = node->map->board[y + i][x + j];
@@ -46,7 +43,6 @@ void		ft_canfill(t_node *node, int i, int j, char player)
 		x = 0;
 		y++;
 	}
-	//fprintf(stderr, "OUTOFCANFILL\n");
 }
 
 int			ft_normy(t_node *node)

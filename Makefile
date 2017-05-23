@@ -3,7 +3,6 @@ NAME		=	jbateau.filler
 SRC_NAME	=	main.c	\
 			ft_addcoord.c \
 			ft_counttrim.c \
-			ft_findspawn.c \
 			ft_freenode.c \
 			ft_nodeinfo.c \
 			ft_nodeinit.c \

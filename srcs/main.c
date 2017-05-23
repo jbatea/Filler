@@ -6,7 +6,7 @@
 /*   By: jbateau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/03 15:31:22 by jbateau           #+#    #+#             */
-/*   Updated: 2017/05/16 17:06:56 by jbateau          ###   ########.fr       */
+/*   Updated: 2017/05/23 16:44:30 by jbateau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,6 @@ void		ft_output(t_node *node, int *n)
 	}
 }
 
-char		ft_op(char player)
-{
-	if (player == 'X')
-		return ('O');
-	return ('X');
-}
-
 /*
  ** Main game's functions, save data then find best play each turn
 */
@@ -70,8 +63,6 @@ int			main(void)
 		if ((node = ft_nodeinit()) && ft_nodeinfo(&node))
 		{
 			ft_possiblemove(node, player);
-			if (node->move)
-				ft_findspawn(node, &(node->my_spawn), ft_op(player));
 			ft_play(node);
 			ft_output(node, &n);
 			ft_freenode(node);
